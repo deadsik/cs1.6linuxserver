@@ -1,7 +1,11 @@
 FROM debian:8.9
 MAINTAINER admin <evgeniy@kolesnyk.ru>
 
-RUN apt-get install lib32gcc1 curl -y
+RUN export DEBIAN_FRONTEND=noninteractive
+RUN rm -f /var/lib/apt/lists/lock
+RUN apt-get update -y
+RUN apt-get upgrade -y
+RUN apt-get install unzip lib32gcc1 screen curl -y
 RUN curl -o /root/hlds_6153_linux.zip http://dark-games.org.ua/files/hlds/hlds_6153_linux.zip
 RUN mkdir -p /root/server/
 RUN unzip /root/hlds_6153_linux.zip -d /root/server/
