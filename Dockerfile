@@ -16,6 +16,7 @@ RUN echo "cd /root/server/" > /root/server/start.sh
 RUN echo "screen -A -m -d -S cs27015 ./hlds_run -game cstrike +ip 0.0.0.0 -autoupdate -pingboost 2 -port 27015 +maxplayers 32 +map de_dust2" >> /root/server/start.sh
 RUN chmod +x /root/server/start.sh
 RUN chmod +x /root/server/hlds_run
+RUN chmod +x /root/server/hlds_linux
 
 COPY start.sh /root/start.sh
 RUN chmod +x /root/start.sh
